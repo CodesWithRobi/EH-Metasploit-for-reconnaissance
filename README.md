@@ -114,7 +114,9 @@ Then, specify the IP address of the target machine with the RHOSTS command.
 > set RHOSTS <metasploitable-ip-address>
 
 Set BLANK_PASSWORDS to true in case there is no password set for the root account.
+
 >set BLANK_PASSWORDS true
+
 ![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/6695fce9-029d-4321-b5cf-026f1fe618b3)
 
 
