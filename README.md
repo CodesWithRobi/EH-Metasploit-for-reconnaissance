@@ -24,22 +24,30 @@ Open terminal and try execute some kali linux commands
 
 Find out the ip address of the attackers system
 ## OUTPUT:
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/5dd48b5e-cb4d-4222-8251-4c1ce5cc66bd)
 
 
+Before beginning, set up the Metasploit database by starting the PostgreSQL server and initialize msfconsole database as follows:
+> systemctl start postgresql
+
+> msfdb init
 
 Invoke msfconsole:
 ## OUTPUT:
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/42369811-2f46-4ab2-adae-441ebee35f47)
 
 
 
 
 Type help or a question mark "?" to see the list of all available commands you can use inside msfconsole.
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/17c367ef-e4dd-4998-8da1-a3fe516406ca)
 
 
 Port Scanning:
 Following command is executed for scanning the systems on our local area network with a TCP scan (-sT) looking for open ports between 1 and 1000 (-p1-1000).
 msf >  nmap -sT 192.168.1810/24 -p1-1000
 ## OUTPUT:
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/e896bbf5-edbf-4809-9eae-dfdfcf45bacf)
 
 step4:
 use the db-nmap command to scan and save the results into Metasploit's postgresql attached database. In that way, you can use those results in the exploitation stage later.
@@ -47,42 +55,26 @@ use the db-nmap command to scan and save the results into Metasploit's postgresq
 scan the targets with the command db_nmap as follows.
 msf > db_nmap 192.168.181.0/24
 ## OUTPUT:
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/55568150-1887-4aba-9e9c-e3883437f582)
 
 Metasploit has a multitude of scanning modules built in. If we open another terminal, we can navigate to Metasploit's auxiliary modules and list all the scanner modules.
 cd /usr/share /metasploit-framework/modules/auxiliary
 kali > ls -l
 ## OUTPUT:
 
-
-
-
-
-
-
-
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/4c30bee3-fd41-4116-b3b5-5a2e33caf308)
 
 Search is a powerful command in Metasploit that you can use to find what you want to locate. 
 msf >search name:Microsoft type:exploit
-
-
-
 ##OUTPUT
-
-
-
-
-
-
-
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/6b71f6b9-b46d-4374-a9bd-21868b9faffc)
 
 
 
 The info command provides information regarding a module or platform,
+![image](https://github.com/CodesWithRobi/EH-Metasploit-for-reconnaissance/assets/130537166/21496da5-fef2-42d8-b5b7-e7e926c1ccc3)
 
 
-Before beginning, set up the Metasploit database by starting the PostgreSQL server and initialize msfconsole database as follows:
-systemctl start postgresql
-msfdb init
 ## MYSQL ENUMERATION
 Find the IP address of the Metasploitable machine first. Then, use the db_nmap command in msfconsole with Nmap flags to scan the MySQL database at 3306 port.
 db_nmap -sV -sC -p 3306 <metasploitable_ip_address>
